@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Topher's Item Tally App</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Topher's Item Tally App</h1>
+      <div class="input-section">
+        <textarea
+          id="inputText"
+          rows="10"
+          placeholder="Enter items (one per line)"></textarea>
+        <button class="tally-btn" onclick="tallyItems()">Tally Items</button>
+        <button class="clear-btn" onclick="clearAll()">Clear</button>
+      </div>
+      <div id="output" class="output-section">
+        <!-- Output will be generated dynamically -->
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+body {
+  background-color: #333;
+  color: #f5f5f5;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.input-section {
+  margin-bottom: 20px;
+}
+
+#inputText {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  resize: vertical;
+  background-color: #444;
+  color: #f5f5f5;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
+  color: #f5f5f5;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.tally-btn {
+  background-color: #3498db;
+  margin-right: 10px;
+}
+
+button.clear-btn {
+  background-color: #95a5a6;
+}
+
+button.clear-btn:hover {
+  background-color: #bb2121;
+}
+button.tally-btn:hover {
+  background-color: #217dbb;
+}
+
+.output-section {
+  display: none;
+  padding-top: 20px;
+}
+
+.output-table {
+  display: table;
+  width: 100%;
+}
+
+.row {
+  display: table-row;
+}
+
+.column {
+  display: table-cell;
+  padding: 10px;
+  border-bottom: 1px solid #555;
+}
+
+.column:nth-child(2) {
+  text-align: center;
+}
+
+.row:nth-child(even) {
+  background-color: #333;
+}
+
+.header-row {
+  background-color: #555;
+}
