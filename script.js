@@ -6,10 +6,11 @@ function tallyItems() {
   lines.forEach(line => {
     const item = line.trim();
     if (item !== '') {
-      if (tally[item]) {
-        tally[item]++;
+      const trimmedItem = item.replace(/\s+1$/, ''); // Remove the trailing "1" character
+      if (tally[trimmedItem]) {
+        tally[trimmedItem]++;
       } else {
-        tally[item] = 1;
+        tally[trimmedItem] = 1;
       }
     }
   });
