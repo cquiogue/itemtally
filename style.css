@@ -92,3 +92,13 @@ button.tally-btn:hover {
 .header-row {
   background-color: #555;
 }
+
+#lpCheckbox {
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.checkbox-label {
+  color: #f5f5f5;
+  font-size: 14px;
+}

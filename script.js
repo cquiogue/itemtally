@@ -1,12 +1,20 @@
+function toggleLP() {
+  tallyItems();
+}
+
 function tallyItems() {
   const inputText = document.getElementById('inputText').value;
   const lines = inputText.split('\n');
   const tally = {};
+  const includeLP = document.getElementById('lpCheckbox').checked;
 
   lines.forEach(line => {
     const item = line.trim();
     if (item !== '') {
-      const trimmedItem = item.replace(/\s+1$/, ''); // Remove the trailing "1" character
+      let trimmedItem = item.replace(/\s+1$/, ''); // Remove the trailing "1"
+      if (!includeLP && trimmedItem.endsWith('-LP')) {
+        trimmedItem = trimmedItem.slice(0, -3); // Remove the last 3 characters ("-LP")
+      }
       if (tally[trimmedItem]) {
         tally[trimmedItem]++;
       } else {

@@ -14,6 +14,8 @@
           placeholder="Enter items (one per line)"></textarea>
         <button class="tally-btn" onclick="tallyItems()">Tally Items</button>
         <button class="clear-btn" onclick="clearAll()">Clear</button>
+        <input type="checkbox" id="lpCheckbox" checked onchange="toggleLP()" />
+        <label class="checkbox-label" for="lpCheckbox">Active</label>
       </div>
       <div id="output" class="output-section">
         <!-- Output will be generated dynamically -->
