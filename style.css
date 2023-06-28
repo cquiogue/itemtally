@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 280px;
   margin: 0 auto;
   padding: 20px;
   background-color: #222;
@@ -51,7 +51,7 @@ button.tally-btn {
 }
 
 button.clear-btn {
-  background-color: #95a5a6;
+  background-color: #657071;
 }
 
 button.clear-btn:hover {
@@ -82,7 +82,7 @@ button.tally-btn:hover {
 }
 
 .column:nth-child(2) {
-  text-align: center;
+  text-align: left;
 }
 
 .row:nth-child(even) {
