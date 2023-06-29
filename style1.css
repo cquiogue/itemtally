@@ -23,6 +23,7 @@ h1 {
 
 #inputText {
   width: 100%;
+  min-height: 300px;
   padding: 10px;
   border: 1px solid #555;
   border-radius: 4px;
