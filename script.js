@@ -74,3 +74,15 @@ function clearAll() {
   document.getElementById('output').innerHTML = '';
   document.getElementById('output').style.display = 'none';
 }
+
+function openPopout() {
+  const width = document.querySelector('.container').offsetWidth;
+  const height = 800;
+  const left = window.screenLeft || window.screenX;
+  const top = window.screenTop || window.screenY;
+  window.open(
+    window.location.href,
+    '_blank',
+    `width=${width},height=${height},left=${left},top=${top}`
+  );
+}
