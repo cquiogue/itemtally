@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Item Tallier</title>
-    <link rel="stylesheet" type="text/css" href="style3.css" />
+    <link rel="stylesheet" type="text/css" href="style4.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -25,6 +25,13 @@
       </div>
       <div id="output" class="output-section">
         <!-- Output will be generated dynamically -->
+      </div>
+      <div class="copy-btn-container">
+        <button class="copy-btn" onclick="copyOutput()">
+          <i class="far fa-copy"></i>
+          <span>Copy</span>
+          <i class="fas fa-check"></i>
+        </button>
       </div>
       <img src="popout.png" class="popout-btn" onclick="openPopout()" />
     </div>

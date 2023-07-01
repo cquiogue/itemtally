@@ -134,3 +134,50 @@ button.tally-btn:hover {
   right: 0px;
   cursor: pointer;
 }
+
+.copy-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button.copy-btn {
+  background-color: #007bff;
+  color: #f5f5f5;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.copy-btn:hover {
+  background-color: #0056b3;
+}
+
+button.copy-btn:focus {
+  outline: none;
+}
+
+button.copy-btn i {
+  margin-right: 6px;
+}
+
+button.copy-btn .fas.fa-check {
+  display: none;
+  margin-left: 6px;
+  color: #28a745;
+}
+
+button.copy-btn.copied {
+  background-color: #28a745;
+}
+
+button.copy-btn.copied span {
+  display: none;
+}
+
+button.copy-btn.copied .fas.fa-check {
+  display: inline-block;
+}
