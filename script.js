@@ -119,6 +119,7 @@ function tallyItems() {
 
 function clearAll() {
   document.getElementById('inputText').value = '';
+  document.getElementById('caseNumber').value = '';
   document.getElementById('output').innerHTML = '';
   document.getElementById('output').style.display = 'none'; // Hide the output div
 }
