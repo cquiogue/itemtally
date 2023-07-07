@@ -2,11 +2,19 @@ function toggleLP() {
   tallyItems();
 }
 
+function toggleExtendedOutput() {
+  tallyItems();
+}
+
 function tallyItems() {
   const inputText = document.getElementById('inputText').value;
   const lines = inputText.split('\n');
   const tally = {};
   const includeLP = document.getElementById('lpCheckbox').checked;
+  const extendedOutputCheckbox = document.getElementById(
+    'extendedOutputCheckbox'
+  ).checked;
+  const caseNumber = document.getElementById('caseNumber').value || '\u00A0';
 
   lines.forEach(line => {
     const item = line.trim();
@@ -24,12 +32,12 @@ function tallyItems() {
   });
 
   const outputDiv = document.getElementById('output');
-  const outputTable = document.createElement('div');
-  outputTable.classList.add('output-table');
-
   outputDiv.innerHTML = '';
 
   if (Object.keys(tally).length > 0) {
+    const outputTable = document.createElement('div');
+    outputTable.classList.add('output-table');
+
     const headerRow = document.createElement('div');
     headerRow.classList.add('row', 'header-row');
 
@@ -40,8 +48,27 @@ function tallyItems() {
 
     const quantityHeader = document.createElement('div');
     quantityHeader.classList.add('column');
-    quantityHeader.innerText = 'Quantity';
+    quantityHeader.innerText = 'Qty';
     headerRow.appendChild(quantityHeader);
+
+    if (extendedOutputCheckbox) {
+      const emptyColumns = ['\u00A0', '\u00A0', '\u00A0'];
+      const fixedColumns = ['\u00A0', '\u00A0', '\u00A0'];
+
+      emptyColumns.forEach(column => {
+        const emptyColumn = document.createElement('div');
+        emptyColumn.classList.add('column');
+        emptyColumn.innerHTML = column;
+        headerRow.appendChild(emptyColumn);
+      });
+
+      fixedColumns.forEach(column => {
+        const fixedColumn = document.createElement('div');
+        fixedColumn.classList.add('column');
+        fixedColumn.innerText = column;
+        headerRow.appendChild(fixedColumn);
+      });
+    }
 
     outputTable.appendChild(headerRow);
 
@@ -61,30 +88,39 @@ function tallyItems() {
       quantityColumn.innerHTML = `<strong>${quantity}</strong>`;
       row.appendChild(quantityColumn);
 
+      if (extendedOutputCheckbox) {
+        const emptyColumns = ['\u00A0', '\u00A0', '\u00A0'];
+        const fixedColumns = ['1002', caseNumber, 'YBAB'];
+
+        emptyColumns.forEach(column => {
+          const emptyColumn = document.createElement('div');
+          emptyColumn.classList.add('column');
+          emptyColumn.innerHTML = column;
+          row.appendChild(emptyColumn);
+        });
+
+        fixedColumns.forEach(column => {
+          const fixedColumn = document.createElement('div');
+          fixedColumn.classList.add('column');
+          fixedColumn.innerText = column;
+          row.appendChild(fixedColumn);
+        });
+      }
+
       outputTable.appendChild(row);
     }
 
     outputDiv.appendChild(outputTable);
-    outputDiv.style.display = 'block';
+    outputDiv.style.display = 'block'; // Display the output div
+  } else {
+    outputDiv.style.display = 'none'; // Hide the output div
   }
 }
 
 function clearAll() {
   document.getElementById('inputText').value = '';
   document.getElementById('output').innerHTML = '';
-  document.getElementById('output').style.display = 'none';
-}
-
-function openPopout() {
-  const width = document.querySelector('.container').offsetWidth;
-  const height = 800;
-  const left = window.screenLeft || window.screenX;
-  const top = window.screenTop || window.screenY;
-  window.open(
-    window.location.href,
-    '_blank',
-    `width=${width},height=${height},left=${left},top=${top}`
-  );
+  document.getElementById('output').style.display = 'none'; // Hide the output div
 }
 
 function copyOutput() {
@@ -93,9 +129,9 @@ function copyOutput() {
 
   // Create a range object to select the text
   const range = document.createRange();
-  range.selectNodeContents(outputTable);
+  range.selectNode(outputTable);
 
-  // Exclude the headers from the selection
+  // Exclude the header row from the selection
   const headerRow = outputTable.querySelector('.header-row');
   range.setStartAfter(headerRow);
 
@@ -107,12 +143,12 @@ function copyOutput() {
 
   // Change the copy button text and disable it temporarily
   const copyBtn = document.querySelector('.copy-btn');
-  copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied';
+  copyBtn.innerHTML = '<i class="far fa-copy"></i> Copied';
   copyBtn.disabled = true;
 
-  // Reset the copy button text after 2 seconds
-  setTimeout(function () {
-    copyBtn.innerHTML = '<i class="far fa-copy"></i> <span>Copy</span>';
+  // Reset the copy button state after 2 seconds
+  setTimeout(() => {
+    copyBtn.innerHTML = '<i class="far fa-copy"></i> Copy';
     copyBtn.disabled = false;
   }, 2000);
 }

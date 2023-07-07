@@ -18,11 +18,23 @@
           id="inputText"
           rows="10"
           placeholder="Enter items (one per line)"></textarea>
+        <label for="caseNumber" class="checkbox-label">Case Number :</label>
+        <input type="text" id="caseNumber" />
+        <br />
         <button class="tally-btn" onclick="tallyItems()">Tally Items</button>
         <button class="clear-btn" onclick="clearAll()">Clear</button>
         <input type="checkbox" id="lpCheckbox" checked onchange="toggleLP()" />
         <label class="checkbox-label" for="lpCheckbox">Active</label>
+        <input
+          type="checkbox"
+          id="extendedOutputCheckbox"
+          checked
+          onchange="toggleExtendedOutput()" />
+        <label class="checkbox-label" for="extendedOutputCheckbox">
+          Extended Output
+        </label>
       </div>
+
       <div id="output" class="output-section">
         <!-- Output will be generated dynamically -->
       </div>
