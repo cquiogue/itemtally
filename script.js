@@ -152,3 +152,18 @@ function copyOutput() {
     copyBtn.disabled = false;
   }, 2000);
 }
+
+function openPopout() {
+  const containerWidth = document.querySelector('.container').offsetWidth;
+  const width = containerWidth;
+  const height = 800;
+  const left = window.screenLeft || window.screenX;
+  const top = window.screenTop || window.screenY;
+  const popoutURL = `${window.location.href}?popout=true`;
+
+  window.open(
+    popoutURL,
+    '_blank',
+    `width=${width},height=${height},left=${left},top=${top}`
+  );
+}
