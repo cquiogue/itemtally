@@ -115,6 +115,11 @@ function tallyItems() {
   } else {
     outputDiv.style.display = 'none'; // Hide the output div
   }
+  // Scroll to the bottom of the page when Tally button is clicked
+  setTimeout(() => {
+    const body = document.body;
+    body.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, 100);
 }
 
 function clearAll() {
@@ -122,6 +127,8 @@ function clearAll() {
   document.getElementById('caseNumber').value = '';
   document.getElementById('output').innerHTML = '';
   document.getElementById('output').style.display = 'none'; // Hide the output div
+  // Scroll back to the top when Clear button is clicked
+  document.body.scrollIntoView({ behavior: 'smooth' });
 }
 
 function copyOutput() {
